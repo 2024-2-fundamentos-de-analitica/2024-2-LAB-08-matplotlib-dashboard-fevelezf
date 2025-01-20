@@ -36,7 +36,7 @@ def pregunta_01():
     * Su código debe crear la carpeta `docs` si no existe.
 
     """
-    os.makedirs('files/docs', exist_ok=True)
+    os.makedirs('docs', exist_ok=True)
     create_visual_for_shipping_per_warehouse(load_data())
     create_visual_for_made_of_shipment(load_data())
     create_visual_for_average_customer_rating(load_data())
@@ -65,7 +65,7 @@ def create_visual_for_shipping_per_warehouse(df):
     )
     plt.gca().spines['top'].set_visible(False)
     plt.gca().spines['right'].set_visible(False)
-    plt.savefig('files/docs/shipping_per_warehouse.png')
+    plt.savefig('docs/shipping_per_warehouse.png')
 
 def create_visual_for_made_of_shipment(df):
     df = df.copy()
@@ -77,7 +77,7 @@ def create_visual_for_made_of_shipment(df):
         ylabel='',
         colors = ['tab:blue', 'tab:orange', 'tab:green'],
     )
-    plt.savefig('files/docs/mode_of_shipment.png')
+    plt.savefig('docs/mode_of_shipment.png')
 
 def create_visual_for_average_customer_rating(df):
     df = df.copy()
@@ -113,7 +113,7 @@ def create_visual_for_average_customer_rating(df):
     plt.gca().spines['bottom'].set_color('gray')
     plt.gca().spines['top'].set_visible(False)
     plt.gca().spines['right'].set_visible(False)
-    plt.savefig('files/docs/average_customer_rating.png')
+    plt.savefig('docs/average_customer_rating.png')
     
 def create_visual_for_weight_distribution(df):
     df = df.copy()
@@ -125,7 +125,7 @@ def create_visual_for_weight_distribution(df):
     )
     plt.gca().spines['top'].set_visible(False)
     plt.gca().spines['right'].set_visible(False)
-    plt.savefig('files/docs/weight_distribution.png')
+    plt.savefig('docs/weight_distribution.png')
 
 def html():
     contenido_html = """<!DOCTYPE html>
@@ -133,17 +133,17 @@ def html():
         <body>
             <h1>Shipping dashboard Example</h1>
             <div style='width: 45%; float: left;'>
-                <img src='files/docs/shipping_per_warehouse.png' alt='FIG1'>
-                <img src='files/docs/mode_of_shipment.png' alt='FIG2'>
+                <img src='docs/shipping_per_warehouse.png' alt='FIG1'>
+                <img src='docs/mode_of_shipment.png' alt='FIG2'>
             </div>
             <div style='width: 45%; float: right;'>
-                <img src='files/docs/average_customer_rating.png' alt='FIG3'>
-                <img src='files/docs/weight_distribution.png' alt='FIG4'>
+                <img src='docs/average_customer_rating.png' alt='FIG3'>
+                <img src='docs/weight_distribution.png' alt='FIG4'>
             </div>
         </body>
     </html>"""
 
-    with open("files/docs/index.html", "w") as archivo:
+    with open("docs/index.html", "w") as archivo:
         archivo.write(contenido_html)
 
 pregunta_01()
